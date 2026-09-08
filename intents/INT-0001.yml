@@ -1,0 +1,24 @@
+uid: INT-0001
+type: intent
+status: proposed
+title: 'Software stays cheap and safe to change as it grows'
+text: |-
+  Most of the cost of software is the cost of changing it after it first works.
+  The SOLID principles exist to keep that cost low and predictable. They do this by
+  controlling how modules divide responsibility and how they depend on one another,
+  so that a change to one part of a system does not force changes, rebuilds, retests
+  or redeployments across parts that had no reason to move.
+
+  A system built to these principles has modules that each answer to one reason to
+  change, that grow by adding code rather than editing working code, whose parts can
+  be swapped without the rest noticing, whose interfaces are no wider than their
+  clients need, and whose high-level policy does not depend on low-level detail.
+rationale: |-
+  The principles are means, not ends. The end is a system that can absorb the
+  changes its owners will actually ask for. A rule in this graph is applied because
+  a real axis of change or a real second client calls for it, never for its own sake.
+normative: false
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 7 — What Is Agile Design?; Martin, Clean Architecture (2017), Part III — Design Principles'
+  principle: 'APPLY'
+  origin: 'ai'

@@ -1,0 +1,24 @@
+uid: SR-0042
+type: system_requirement
+status: proposed
+title: 'Apply the principles to any unit that can change independently, not only to classes'
+text: |-
+  A module is any cohesive unit of functions and data that can change on its own,
+  including a function, a class, a package, a service and a deployable component.
+  Single responsibility, closure against modification, substitutability, narrow
+  interfaces and inverted dependencies apply at each of these scales, in the same
+  terms.
+
+  Check. When reviewing a package or a service boundary, ask the same questions asked
+  of a class, such as who changes it, whether a new case is an addition, and which
+  way the dependencies point.
+rationale: |-
+  The principles describe how things that change should relate to one another. That
+  is not a property of classes; it is a property of anything that can change.
+links:
+- target: UR-0006
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 7 — SRP (what a module is); Martin, Clean Architecture (2017), Part III — Design Principles'
+  principle: 'APPLY'
+  origin: 'ai'

@@ -1,0 +1,19 @@
+uid: UR-0006
+type: user_requirement
+status: proposed
+title: 'Applying the principles — apply them where change is expected, at every scale'
+text: |-
+  The principles are applied in response to a real reason to change, at whatever
+  scale that reason appears, and never as a blanket rule. Their symptoms of
+  absence are the design smells. Their over-application is itself a smell.
+rationale: |-
+  A design that abstracts every seam is as hard to change as one that abstracts
+  none, because the reader must trace through indirection that protects against
+  nothing. The principles pay for themselves only where a change actually arrives.
+links:
+- target: INT-0001
+  type: derives_from
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 7 — What Is Agile Design?; Martin, Clean Architecture (2017), Part III — Design Principles'
+  principle: 'APPLY'
+  origin: 'ai'

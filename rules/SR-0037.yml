@@ -1,0 +1,23 @@
+uid: SR-0037
+type: system_requirement
+status: proposed
+title: 'Confine knowledge of concrete classes to one composition root'
+text: |-
+  One component, the composition root or main, knows which concrete classes exist
+  and wires them to the abstractions the policy declares. It depends on everything;
+  nothing depends on it. It holds no policy. Dependency-injection containers, if
+  used, are configured here and nowhere else.
+
+  Check. Concrete detail classes are referenced from the composition root and from
+  their own tests, and from no other module.
+rationale: |-
+  Concrete dependencies cannot vanish; they can only be collected. Collecting them
+  in one place that nothing depends on means that changing a detail changes that one
+  place and the detail itself.
+links:
+- target: UR-0005
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 11 — DIP (the concrete component; main)'
+  principle: 'DIP'
+  origin: 'ai'

@@ -1,0 +1,24 @@
+uid: SR-0017
+type: system_requirement
+status: proposed
+title: 'Design subtypes so callers of the supertype never need to know the concrete type'
+text: |-
+  A subtype is usable in any place the supertype is declared, without the caller
+  checking which subtype it holds and without the result being wrong. Model IS-A on
+  behaviour, not on the real-world taxonomy. A square is a rectangle in geometry, but
+  a Square class whose setWidth also changes its height is not a substitute for a
+  Rectangle whose callers set width and height independently.
+
+  Check. Take each public use of the supertype and run it, in your head or in a test,
+  with every subtype. Any use that would need a special case fails this rule.
+rationale: |-
+  The value of an abstraction is that its callers do not care which implementation
+  they hold. A subtype that makes them care removes that value and reintroduces the
+  coupling the abstraction was meant to remove.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 'Liskov, Data Abstraction and Hierarchy (OOPSLA 1987 keynote); Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 10 — LSP (the Square and Rectangle example); Martin, Clean Architecture (2017), ch. 9 — LSP'
+  principle: 'LSP'
+  origin: 'ai'

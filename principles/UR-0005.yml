@@ -1,0 +1,22 @@
+uid: UR-0005
+type: user_requirement
+status: proposed
+title: 'Dependency Inversion Principle — depend on abstractions, not on concrete details'
+text: |-
+  High-level policy does not depend on low-level detail; both depend on
+  abstractions. Abstractions do not depend on details; details depend on
+  abstractions. The interface a policy needs is owned by the policy and is
+  implemented by the detail, so that the source-code dependency points from the
+  detail toward the policy even though control flows the other way.
+rationale: |-
+  Details such as databases, frameworks, transports and file formats change more
+  often than the business rules that use them. When policy names a detail in its
+  source, every change to the detail ripples into the policy. Inverting the
+  dependency makes the detail a plug-in to the policy.
+links:
+- target: INT-0001
+  type: derives_from
+attrs:
+  source_ref: 'Martin, Design Principles and Design Patterns (2000); Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 11 — DIP; Martin, Clean Architecture (2017), ch. 11 — DIP'
+  principle: 'DIP'
+  origin: 'ai'

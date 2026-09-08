@@ -1,0 +1,24 @@
+uid: SR-0011
+type: system_requirement
+status: proposed
+title: 'Replace a repeated switch on a type tag with polymorphism'
+text: |-
+  A chain of if, else-if or switch statements that branches on a type code, an enum
+  of kinds, a string discriminator or the concrete class of an object, and that
+  appears in more than one place, becomes a family of types behind one abstraction.
+  Each branch becomes an implementation. A single such switch, in one place, that
+  only creates the right implementation (a factory) is acceptable.
+
+  Check. Search for the discriminator. If the same set of cases is switched on in two
+  or more places, apply this rule.
+rationale: |-
+  Each repeated switch is a place that must be found and edited for every new case.
+  Missing one is a silent defect. Polymorphism turns the set of cases into a set of
+  modules that the compiler or runtime dispatches without anyone remembering.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 9 — OCP (the Shape example); Martin, Clean Code (2008), ch. 3 — Functions (switch statements)'
+  principle: 'OCP'
+  origin: 'ai'

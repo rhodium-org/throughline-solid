@@ -1,0 +1,24 @@
+uid: SR-0003
+type: system_requirement
+status: proposed
+title: 'Do not share a private helper between methods that serve different actors'
+text: |-
+  Two methods that serve different actors must not call the same private helper when
+  that helper encodes a rule either actor could change. Duplicate the helper, or lift
+  the shared part into a module that is clearly owned by one actor and consumed by
+  the other through a stable interface.
+
+  Check. Look for a private function called from methods that belong to different
+  actors. If changing it for one actor would silently change the result for the
+  other, it is a shared-algorithm defect.
+rationale: |-
+  Two things that look the same today but change for different reasons are
+  accidental duplicates, not true duplicates. Merging them is the most common way a
+  single-responsibility module silently acquires a second one.
+links:
+- target: UR-0001
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 7 — SRP (accidental duplication)'
+  principle: 'SRP'
+  origin: 'ai'

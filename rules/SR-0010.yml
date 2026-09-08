@@ -1,0 +1,24 @@
+uid: SR-0010
+type: system_requirement
+status: proposed
+title: 'Add a new variant by adding code, not by editing working code'
+text: |-
+  When a new case arrives of a kind the design already varies on, for example a new
+  payment method, export format, notification channel, pricing rule or shape, add it
+  as a new module that implements the existing abstraction. Existing modules are not
+  edited, except for the one place that registers or composes implementations.
+
+  Check. Diff the change. If files other than the new implementation and the
+  composition root were modified, the design is not closed against that kind of
+  change.
+rationale: |-
+  Every edit to a working module risks breaking it and forces its retest. When a new
+  case is pure addition, the old code stays proven and only the new code needs
+  proving.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 'Meyer, Object-Oriented Software Construction (1988) — the Open-Closed principle; Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 9 — OCP; Martin, Clean Architecture (2017), ch. 8 — OCP'
+  principle: 'OCP'
+  origin: 'ai'

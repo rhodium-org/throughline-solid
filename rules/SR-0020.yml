@@ -1,0 +1,22 @@
+uid: SR-0020
+type: system_requirement
+status: proposed
+title: "Do not throw from a subtype for inputs the supertype's contract accepts"
+text: |-
+  A subtype does not raise an exception, error or failure result for a call the
+  supertype's contract accepts, and raises no exception type that the supertype's
+  contract does not name. If a subtype cannot honour a method, it is not a subtype of
+  that supertype; segregate the interface instead.
+
+  Check. For each overridden method, list the error cases. Any new one that a caller
+  of the supertype would not be prepared to handle is a violation.
+rationale: |-
+  An unexpected exception is a weakened postcondition delivered at run time. It
+  surfaces as a failure in a caller that was correct against the supertype.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 'Liskov and Wing, A Behavioral Notion of Subtyping (ACM TOPLAS 16(6), 1994) (exception rule); Martin, Clean Architecture (2017), ch. 9 — LSP'
+  principle: 'LSP'
+  origin: 'ai'

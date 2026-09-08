@@ -1,0 +1,23 @@
+uid: SR-0014
+type: system_requirement
+status: proposed
+title: 'Do not build abstractions for variation that has not occurred and is not known to be coming'
+text: |-
+  Do not add an interface, a strategy, a plug-in point or a configuration switch for
+  a variation that exists only in speculation. One implementation with no second
+  implementation and no concrete plan for one is a concrete class, not an
+  abstraction.
+
+  Check. An interface with exactly one implementation and no named second
+  implementation, whether real, planned or a test double that a test genuinely
+  needs, is needless complexity. Remove it or justify it in writing.
+rationale: |-
+  Needless complexity is a design smell in its own right. It makes the design harder
+  to read and change today for a benefit that may never be claimed.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 7 — What Is Agile Design? (needless complexity); Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 9 — OCP'
+  principle: 'OCP'
+  origin: 'ai'

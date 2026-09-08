@@ -1,0 +1,25 @@
+uid: SR-0024
+type: system_requirement
+status: proposed
+title: 'Apply substitutability to every implementer of an interface, not only to subclasses'
+text: |-
+  The rule covers anything that stands in for an abstraction, including plug-ins,
+  drivers, adapters, service endpoints behind a common client, and implementations
+  of a protocol or schema. An implementer that varies a convention the abstraction
+  fixes, such as an argument format or an ordering guarantee, breaks every consumer
+  that trusted the abstraction, and the fix will otherwise be a special case in each
+  consumer.
+
+  Check. For a shared interface across services or modules, confirm that every
+  implementer honours the same conventions, not just the same signatures.
+rationale: |-
+  Substitution failures at architectural boundaries are the expensive ones. They
+  turn a clean abstraction into a growing table of special cases that every consumer
+  must maintain.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 9 — LSP (LSP and architecture; the taxi dispatch example)'
+  principle: 'LSP'
+  origin: 'ai'

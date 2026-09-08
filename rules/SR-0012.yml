@@ -1,0 +1,23 @@
+uid: SR-0012
+type: system_requirement
+status: proposed
+title: 'Do not branch on the concrete type of an object'
+text: |-
+  Code that receives an object through an abstraction does not inspect its concrete
+  type with instanceof, type checks, casts, reflection on class names or a
+  hand-rolled kind field, in order to choose behaviour. The behaviour that differs
+  per type belongs in the type, reached through a method on the abstraction.
+
+  Check. Every occurrence of a type test on an abstraction-typed value is a
+  violation unless it is confined to the composition root or a deserialisation
+  boundary.
+rationale: |-
+  A type test is a hidden switch. It couples the caller to every concrete type, so
+  adding a type means finding and editing every caller that tests for one.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 9 — OCP (heuristics; run-time type information is dangerous)'
+  principle: 'OCP'
+  origin: 'ai'

@@ -1,0 +1,21 @@
+uid: UR-0003
+type: user_requirement
+status: proposed
+title: 'Liskov Substitution Principle — subtypes are usable wherever the supertype is expected'
+text: |-
+  Any object of a subtype can stand in for an object of its supertype without the
+  caller knowing the difference and without the program's correctness changing.
+  Substitutability is about behaviour, not shape. A type that shares a supertype's
+  method signatures but not its contract is not a subtype, however natural the
+  real-world hierarchy looks.
+rationale: |-
+  Every caller of an abstraction relies on its contract. A subtype that bends the
+  contract forces callers to test for the concrete type, which destroys the
+  abstraction and reintroduces the coupling it was meant to remove.
+links:
+- target: INT-0001
+  type: derives_from
+attrs:
+  source_ref: 'Liskov, Data Abstraction and Hierarchy (OOPSLA 1987 keynote); Liskov and Wing, A Behavioral Notion of Subtyping (ACM TOPLAS 16(6), 1994); Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 10 — LSP; Martin, Clean Architecture (2017), ch. 9 — LSP'
+  principle: 'LSP'
+  origin: 'ai'

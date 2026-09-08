@@ -1,0 +1,23 @@
+uid: SR-0009
+type: system_requirement
+status: proposed
+title: 'Make each function do one thing at one level of abstraction'
+text: |-
+  Apply single responsibility inside a module too. A function does one thing, and
+  all its statements sit at the same level of abstraction. A function that mixes
+  high-level steps with low-level detail, or that contains sections separated by
+  blank lines and comments, is several functions.
+
+  Check. If you can extract another function from it with a name that is not merely
+  a restatement of its body, it does more than one thing.
+rationale: |-
+  Functions that do one thing are the units from which single-responsibility modules
+  are assembled. A function with several jobs cannot be moved to the module that
+  owns any one of them.
+links:
+- target: UR-0001
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Code (2008), ch. 3 — Functions (do one thing; one level of abstraction per function)'
+  principle: 'SRP'
+  origin: 'ai'

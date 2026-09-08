@@ -1,0 +1,23 @@
+uid: SR-0028
+type: system_requirement
+status: proposed
+title: 'Treat a method an implementer cannot honour as a sign the interface is too wide'
+text: |-
+  When a class implementing an interface must leave a method empty, return a
+  meaningless default or raise not-supported, the interface has combined roles that
+  do not belong together. Split the interface so that this class implements only the
+  roles it can honour.
+
+  Check. Search implementations for empty, default-returning or not-supported
+  methods. Each is a segregation to make.
+rationale: |-
+  This is where the Interface Segregation and Liskov Substitution principles meet.
+  A fat interface forces implementers to lie about what they support, and the lie is
+  caught by a caller at run time.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 12 — ISP (interface pollution); Martin, Clean Architecture (2017), ch. 10 — ISP'
+  principle: 'ISP'
+  origin: 'ai'

@@ -1,0 +1,23 @@
+uid: SR-0034
+type: system_requirement
+status: proposed
+title: 'Refer to abstractions, not to volatile concrete classes, in source'
+text: |-
+  In a policy module, no field, parameter, local variable, return type or
+  inheritance clause names a volatile concrete class. A volatile class is one under
+  active development, one likely to be replaced, or one owned by another team. Stable
+  platform types such as strings, collections and numbers are exempt.
+
+  Check. Scan declarations in policy modules for concrete class names. Each one that
+  is volatile is a dependency to invert.
+rationale: |-
+  Every mention of a concrete class in source is a compile-time dependency on it.
+  Confining those mentions to abstractions is what lets the concrete class change
+  without the policy noticing.
+links:
+- target: UR-0005
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 11 — DIP (stable abstractions; do not refer to volatile concrete classes)'
+  principle: 'DIP'
+  origin: 'ai'

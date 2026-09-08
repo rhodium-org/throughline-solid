@@ -1,0 +1,23 @@
+uid: SR-0029
+type: system_requirement
+status: proposed
+title: 'Do not let a change for one client force unrelated clients to rebuild or redeploy'
+text: |-
+  Adding or changing a method that one client needs does not touch the interface
+  that other clients depend on. If it would, put the new method on a separate
+  interface for the client that needs it, or on a new interface that extends the old
+  one for that client alone.
+
+  Check. Before changing an interface, list its clients. Any client that does not
+  need the change but would be affected by it identifies an interface to split.
+rationale: |-
+  Interface pollution spreads: one client's need becomes every client's rebuild,
+  and over time every client is coupled to every other through the interface they
+  share.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 12 — ISP (interface pollution)'
+  principle: 'ISP'
+  origin: 'ai'

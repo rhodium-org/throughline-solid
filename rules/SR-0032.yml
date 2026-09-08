@@ -1,0 +1,23 @@
+uid: SR-0032
+type: system_requirement
+status: proposed
+title: 'Keep high-level policy free of imports from low-level detail'
+text: |-
+  A module that holds business rules or application policy does not import, name or
+  call a database driver, an object-relational mapper, a web framework, a message
+  broker client, a file system API, a clock, or any other volatile detail. The policy
+  module declares the interfaces it needs, and detail modules implement them.
+
+  Check. Read the import list of every policy module. An import of a detail is a
+  violation. Framework annotations on policy classes count as imports.
+rationale: |-
+  Details change more often than rules and at other people's request. When the
+  rules import a detail, every change in the detail reopens the rules, and the rules
+  cannot be tested without the detail present.
+links:
+- target: UR-0005
+  type: implements
+attrs:
+  source_ref: 'Martin, Design Principles and Design Patterns (2000); Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 11 — DIP; Martin, Clean Architecture (2017), ch. 11 — DIP'
+  principle: 'DIP'
+  origin: 'ai'

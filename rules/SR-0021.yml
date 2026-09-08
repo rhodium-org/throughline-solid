@@ -1,0 +1,24 @@
+uid: SR-0021
+type: system_requirement
+status: proposed
+title: 'Never override a method to do nothing or to report that it is unsupported'
+text: |-
+  A subtype does not override a method with an empty body, a return of a default
+  value that ignores the request, or a raised not-supported error. Such a degenerate
+  method means the type is being made to pass as something it is not. Fix the type
+  hierarchy, by segregating the interface or by using composition, rather than
+  silencing the method.
+
+  Check. Search overriding methods for empty bodies, unconditional default returns
+  and unsupported-operation errors.
+rationale: |-
+  A degenerate override is the most common concrete form of a substitution
+  violation. It hides at compile time and fails in the one caller that relied on the
+  method doing its job.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 10 — LSP (degenerate functions in derivatives); Martin, Clean Architecture (2017), ch. 9 — LSP'
+  principle: 'LSP'
+  origin: 'ai'

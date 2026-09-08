@@ -1,0 +1,19 @@
+uid: UR-0001
+type: user_requirement
+status: proposed
+title: 'Single Responsibility Principle — a module has one reason to change'
+text: |-
+  A module answers to one, and only one, actor. An actor is a group of people or
+  systems that ask for changes for the same reason. When two actors would each
+  cause the same module to change, the module has two responsibilities and must be
+  split so that each actor's logic lives in its own module.
+rationale: |-
+  When one module serves several actors, a change made for one of them breaks or
+  redeploys the others. Separating by reason to change keeps each change local.
+links:
+- target: INT-0001
+  type: derives_from
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 8 — SRP; Martin, Clean Architecture (2017), ch. 7 — SRP'
+  principle: 'SRP'
+  origin: 'ai'

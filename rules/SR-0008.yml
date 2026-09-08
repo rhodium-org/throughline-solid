@@ -1,0 +1,22 @@
+uid: SR-0008
+type: system_requirement
+status: proposed
+title: 'Present a facade when a split would otherwise expose several modules to one caller'
+text: |-
+  When splitting a module by actor leaves a caller needing all the parts, add a thin
+  facade that instantiates and delegates to them. The facade holds no logic of its
+  own. Callers see one entry point; each responsibility still lives in its own
+  module.
+
+  Check. A facade method body is a delegation and nothing else. Logic in a facade is
+  a responsibility that escaped the split.
+rationale: |-
+  Without a facade, every caller must know how the responsibilities were divided,
+  which couples the callers to the split and defeats the purpose of making it.
+links:
+- target: UR-0001
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 7 — SRP (the Facade solution)'
+  principle: 'SRP'
+  origin: 'ai'

@@ -1,0 +1,22 @@
+throughline-solid
+Copyright 2026 Henry J Grech-Cini
+
+This product includes work developed by Dr Henry J Grech-Cini.
+
+Licensed under the Apache License, Version 2.0. See the LICENSE file for the
+full terms.
+
+This repository is a throughline *source*: a requirements graph, not a program. It
+expresses the SOLID principles of object-oriented design as a grounded IDD graph so
+consuming projects can compose it with throughline-compose.
+
+The wording of every item is original to this repository. No text is reproduced from
+any publication. The principles themselves are the work of their authors: the
+Single Responsibility, Open-Closed (as named), Interface Segregation and Dependency
+Inversion principles were formulated and collected by Robert C. Martin; the
+Open-Closed principle was first stated by Bertrand Meyer; the Liskov Substitution
+principle is Barbara Liskov's, with its behavioural formulation by Liskov and Jeannette
+Wing; the acronym SOLID was coined by Michael Feathers. Each item cites, in
+`attrs.source_ref`, the publication and chapter it is drawn from, so a reader can go
+to the authoritative statement. Those publications remain the copyright of their
+authors and publishers and are not licensed by this repository.

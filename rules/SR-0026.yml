@@ -1,0 +1,21 @@
+uid: SR-0026
+type: system_requirement
+status: proposed
+title: 'Split an interface so that each client depends only on the methods it calls'
+text: |-
+  When different clients use different subsets of an interface, split it into one
+  interface per subset. A class that serves all of them implements all of the
+  narrow interfaces. No client is handed methods it does not call.
+
+  Check. For each client of an interface, list the methods it calls. If two clients'
+  lists differ, the interface is a candidate for segregation along that difference.
+rationale: |-
+  A client depends on the whole of whatever type it names. A change to a method it
+  never calls still forces it to be rebuilt, retested and redeployed.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 12 — ISP; Martin, Clean Architecture (2017), ch. 10 — ISP'
+  principle: 'ISP'
+  origin: 'ai'

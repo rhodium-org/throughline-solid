@@ -1,0 +1,23 @@
+uid: SR-0019
+type: system_requirement
+status: proposed
+title: "Preserve the supertype's invariants and its constraints on state history"
+text: |-
+  Every invariant that holds for all objects of the supertype holds for all objects
+  of the subtype. A subtype does not introduce a way to change state that the
+  supertype rules out. In particular, a mutable subtype of a type that its callers
+  treat as immutable violates this rule even if no method signature changes.
+
+  Check. List the supertype's invariants and the state transitions it allows. Any
+  subtype method that can break an invariant or perform a forbidden transition
+  fails.
+rationale: |-
+  Callers reason about objects over time as well as per call. A subtype that can
+  reach states the supertype never could invalidates that reasoning silently.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 'Liskov and Wing, A Behavioral Notion of Subtyping (ACM TOPLAS 16(6), 1994) (invariant rule and history constraint)'
+  principle: 'LSP'
+  origin: 'ai'

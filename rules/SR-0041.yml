@@ -1,0 +1,23 @@
+uid: SR-0041
+type: system_requirement
+status: proposed
+title: 'Read the design smells as symptoms and name the principle each one points to'
+text: |-
+  Treat rigidity (one change forces many), fragility (a change breaks unrelated
+  parts), immobility (a part cannot be reused elsewhere), viscosity (the hack is
+  easier than the right change), needless complexity, needless repetition and opacity
+  as signals. For each smell found, name the principle whose violation produces it
+  and fix that, rather than treating the symptom.
+
+  Check. A review that reports a smell also reports the principle and the module at
+  fault.
+rationale: |-
+  The smells are how violations show themselves in practice. Naming the principle
+  behind a smell turns a complaint into a specific, repeatable refactoring.
+links:
+- target: UR-0006
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 7 — What Is Agile Design? (design smells: the odours of rotting software)'
+  principle: 'APPLY'
+  origin: 'ai'

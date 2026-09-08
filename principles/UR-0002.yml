@@ -1,0 +1,21 @@
+uid: UR-0002
+type: user_requirement
+status: proposed
+title: 'Open-Closed Principle — extend behaviour without modifying working code'
+text: |-
+  A module is open for extension and closed for modification. New behaviour of a
+  kind the design anticipates is added by writing new code, not by editing the
+  code that already works. The module reaches this state by depending on an
+  abstraction at the point where variation occurs, so that a new variant is a new
+  implementation of that abstraction.
+rationale: |-
+  Code that is edited for every new case accumulates risk with every edit and must
+  be retested each time. Code that is extended stays stable, and the new case is
+  tested alone.
+links:
+- target: INT-0001
+  type: derives_from
+attrs:
+  source_ref: 'Meyer, Object-Oriented Software Construction (1988) — the Open-Closed principle; Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 9 — OCP; Martin, Clean Architecture (2017), ch. 8 — OCP'
+  principle: 'OCP'
+  origin: 'ai'

@@ -1,0 +1,24 @@
+uid: SR-0033
+type: system_requirement
+status: proposed
+title: 'Let the policy own the interface that the detail implements'
+text: |-
+  The abstraction a policy depends on is declared in the policy's own module or
+  package, named in the policy's terms, and implemented by the detail. The detail
+  therefore depends on the policy, and the source-code dependency points opposite to
+  the flow of control. Do not have the policy depend on an interface that ships with
+  or is shaped by the detail.
+
+  Check. Find the interface's file. It lives with the policy that calls it, not with
+  the detail that implements it, and it uses the policy's vocabulary.
+rationale: |-
+  An interface owned by the detail changes when the detail changes, so depending on
+  it is still depending on the detail. Ownership by the client is what makes the
+  inversion real.
+links:
+- target: UR-0005
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 11 — DIP (ownership of the abstraction; the Button and Lamp example); Martin, Clean Architecture (2017), ch. 11 — DIP'
+  principle: 'DIP'
+  origin: 'ai'

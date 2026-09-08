@@ -1,0 +1,23 @@
+uid: SR-0027
+type: system_requirement
+status: proposed
+title: "Shape and name each interface from the client's point of view"
+text: |-
+  Design an interface for the client that uses it, not for the class that implements
+  it. Name it for the role the client needs, such as a Reader, a Notifier, a
+  PriceSource, rather than for the implementer. Put in it only what that client
+  needs to do its job.
+
+  Check. Each interface can be explained by pointing at the client that requires it
+  and the job that client does with it.
+rationale: |-
+  An interface designed from the implementer's side is a mirror of the implementer
+  and grows with it. One designed from the client's side stays as small as the
+  client's need.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 12 — ISP (client-specific interfaces); Martin, Clean Architecture (2017), ch. 10 — ISP'
+  principle: 'ISP'
+  origin: 'ai'

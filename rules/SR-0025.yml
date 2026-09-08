@@ -1,0 +1,22 @@
+uid: SR-0025
+type: system_requirement
+status: proposed
+title: 'Use composition, not inheritance, when the relationship is reuse rather than substitution'
+text: |-
+  Inherit only when every object of the subtype can be used as an object of the
+  supertype. When the goal is to reuse an implementation, or the relationship is
+  has-a or uses-a, hold the other object as a field and delegate. A line segment is
+  not a substitute for an infinite line, even though it shares most of the code.
+
+  Check. Ask whether every caller of the base type would be correct when handed the
+  derived type. If not, the derived type wraps the base rather than extending it.
+rationale: |-
+  Inheritance used for reuse produces subtypes that fail substitution, and the
+  failure is discovered by the callers, not by the author.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 10 — LSP (the Line and LineSegment example)'
+  principle: 'LSP'
+  origin: 'ai'

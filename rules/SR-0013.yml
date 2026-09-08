@@ -1,0 +1,23 @@
+uid: SR-0013
+type: system_requirement
+status: proposed
+title: 'Close a module against a kind of change after that change has happened once'
+text: |-
+  Do not guess which changes will come. Write the simplest code that works. When the
+  first change of a given kind arrives, refactor so that the module is closed against
+  further changes of that kind, then implement the change as an extension. Do not
+  build the abstraction before the first change has shown that this axis is real.
+
+  Check. Every abstraction introduced in the name of this principle can point to the
+  change that motivated it.
+rationale: |-
+  Abstractions built against imagined change are usually wrong about which change
+  comes, and they cost the reader indirection for no protection. The first real
+  change tells you where the seam actually is.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 9 — OCP (anticipation and natural structure; taking the first bullet)'
+  principle: 'OCP'
+  origin: 'ai'

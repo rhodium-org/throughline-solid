@@ -1,0 +1,21 @@
+uid: SR-0031
+type: system_requirement
+status: proposed
+title: 'Combine narrow interfaces by composition when a client needs more than one role'
+text: |-
+  A client that needs two roles depends on two interfaces, or on a small interface
+  that extends both, rather than on a union interface handed to every other client
+  as well. Implementers keep implementing the narrow roles.
+
+  Check. Any interface created for one client's convenience that other clients are
+  now required to accept has undone a segregation.
+rationale: |-
+  Multiple inheritance of interfaces lets a class present several roles without
+  forcing any single client to see all of them.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 12 — ISP (separation through multiple inheritance)'
+  principle: 'ISP'
+  origin: 'ai'

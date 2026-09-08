@@ -1,0 +1,23 @@
+uid: SR-0038
+type: system_requirement
+status: proposed
+title: 'Point every dependency that crosses an architectural boundary toward the more abstract side'
+text: |-
+  Where a boundary separates a higher-level component from a lower-level one, the
+  source-code dependency crosses it from the lower-level side toward the higher-level
+  side. When control must flow from policy to detail, the policy calls an interface it
+  owns and the detail implements it on the other side. No dependency crosses a
+  boundary from policy toward detail.
+
+  Check. Draw the components and the arrows. An arrow leaving a policy component
+  and landing on a detail component is the one to invert.
+rationale: |-
+  A boundary is only as good as the direction of the dependencies across it. One
+  arrow pointing from policy to detail is enough to make the detail unreplaceable.
+links:
+- target: UR-0005
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 11 — DIP (the dependency rule); Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 11 — DIP (layering; the inverted layers)'
+  principle: 'DIP'
+  origin: 'ai'

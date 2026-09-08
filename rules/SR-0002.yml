@@ -1,0 +1,24 @@
+uid: SR-0002
+type: system_requirement
+status: proposed
+title: 'Split a module whose methods would change for different actors'
+text: |-
+  When one module holds methods that different actors would ask to change, move each
+  actor's methods into a separate module. The classic case is one class that
+  calculates pay for finance, reports hours for operations, and saves itself for the
+  database team. Those become three modules that share the data they need through a
+  simple data structure, not through each other's logic.
+
+  Check. Ask, for each public method, who would request a change to it. Methods with
+  different answers belong in different modules.
+rationale: |-
+  Methods that change for different reasons but live together get coupled by
+  accident. A fix for one actor then breaks another actor's behaviour, and both must
+  be retested and redeployed for a change only one of them wanted.
+links:
+- target: UR-0001
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 7 — SRP (the Employee example); Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 8 — SRP'
+  principle: 'SRP'
+  origin: 'ai'

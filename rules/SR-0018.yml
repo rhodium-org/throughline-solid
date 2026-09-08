@@ -1,0 +1,25 @@
+uid: SR-0018
+type: system_requirement
+status: proposed
+title: 'Never strengthen a precondition or weaken a postcondition in a subtype'
+text: |-
+  A subtype accepts at least every input the supertype accepts, and guarantees at
+  least everything the supertype guarantees. It may accept more and promise more; it
+  may not demand more or deliver less. Write the supertype's preconditions and
+  postconditions down, in documentation or in assertions, so that this can be
+  checked.
+
+  Check. For each overridden method, compare the conditions. A new argument check
+  that rejects a value the supertype allowed is a strengthened precondition. A result
+  that can violate a property the supertype promised is a weakened postcondition.
+rationale: |-
+  Callers are written against the supertype's contract. A subtype that demands more
+  breaks callers that supply less; one that delivers less breaks callers that relied
+  on more.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 'Liskov and Wing, A Behavioral Notion of Subtyping (ACM TOPLAS 16(6), 1994); Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 10 — LSP (design by contract)'
+  principle: 'LSP'
+  origin: 'ai'

@@ -1,0 +1,22 @@
+uid: SR-0004
+type: system_requirement
+status: proposed
+title: "Keep each module's public methods cohesive around the same data"
+text: |-
+  The public methods of a class or module all operate on most of the same fields or
+  state. A method that touches only a subset of the state, which no other method
+  touches, is a candidate for its own module.
+
+  Check. Sketch which methods use which fields. Two or more disjoint clusters mean
+  two or more modules are hiding in one.
+rationale: |-
+  Low cohesion is the structural signature of more than one responsibility. Clusters
+  of methods around separate data are separate reasons to change that happen to share
+  a file.
+links:
+- target: UR-0001
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 8 — SRP (cohesion)'
+  principle: 'SRP'
+  origin: 'ai'

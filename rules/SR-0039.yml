@@ -1,0 +1,24 @@
+uid: SR-0039
+type: system_requirement
+status: proposed
+title: 'Apply a principle in response to a named reason to change, and record that reason'
+text: |-
+  Each abstraction, split or inversion made in the name of a SOLID principle is
+  justified by a specific axis of change or a specific second client, and that
+  justification is recorded where the abstraction is declared, in its documentation
+  comment or an accompanying design note. An abstraction with no recorded reason is
+  removed or justified.
+
+  Check. Open the interface or the module boundary. The reason it exists is written
+  down and names a change or a client, not a principle.
+rationale: |-
+  Writing the reason down forces the author to have one and lets a later reader tell
+  a load-bearing seam from ceremony. It also makes the design's assumptions
+  reviewable when they turn out wrong.
+links:
+- target: UR-0006
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 7 — What Is Agile Design?; Martin, Clean Architecture (2017), Part III — Design Principles'
+  principle: 'APPLY'
+  origin: 'ai'

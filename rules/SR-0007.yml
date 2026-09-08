@@ -1,0 +1,22 @@
+uid: SR-0007
+type: system_requirement
+status: proposed
+title: "Treat a module whose honest name needs 'and', 'manager', 'util' or 'helper' as a smell"
+text: |-
+  Name a module for the one thing it does. If the accurate name would contain 'and',
+  or falls back to a catch-all like Manager, Processor, Utils or Helper, the module
+  is a bag of unrelated responsibilities. Split it and name each part for its actor
+  and purpose.
+
+  Check. Try to write a one-sentence description of the module without the word
+  'and'. Failure is the signal.
+rationale: |-
+  Vague names are where second responsibilities hide. A precise name is a cheap,
+  constant test of single responsibility that every reader runs unconsciously.
+links:
+- target: UR-0001
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Code (2008), ch. 10 — Classes (class organisation and the SRP)'
+  principle: 'SRP'
+  origin: 'ai'

@@ -1,0 +1,22 @@
+uid: SR-0040
+type: system_requirement
+status: proposed
+title: 'Take the first change as it comes, then close the design against the next one of its kind'
+text: |-
+  Do not pre-empt change. Implement the first version as simply as it can correctly
+  be. When a change arrives, make it, and while making it, restructure so that the
+  next change of the same kind will be an extension rather than an edit. Do not
+  restructure against kinds of change that have not yet arrived.
+
+  Check. Every seam in the design can name the change that opened it.
+rationale: |-
+  Stimulating change early and responding to it is more reliable than predicting
+  it. The first change is evidence; a prediction is a guess that costs indirection
+  whether or not it comes true.
+links:
+- target: UR-0006
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 9 — OCP (taking the first bullet; stimulating change)'
+  principle: 'APPLY'
+  origin: 'ai'

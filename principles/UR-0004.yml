@@ -1,0 +1,20 @@
+uid: UR-0004
+type: user_requirement
+status: proposed
+title: 'Interface Segregation Principle — no client depends on methods it does not use'
+text: |-
+  Clients are not forced to depend on methods they do not call. An interface is
+  shaped for the client that uses it, not for the class that implements it. A class
+  that serves several kinds of client implements several narrow interfaces, one per
+  role, rather than one wide interface that every client must accept whole.
+rationale: |-
+  A client that depends on a wide interface is coupled to every method in it. When
+  a method it never calls changes, the client still has to be rebuilt, retested and
+  redeployed. Narrow interfaces confine each change to the clients that care.
+links:
+- target: INT-0001
+  type: derives_from
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 12 — ISP; Martin, Clean Architecture (2017), ch. 10 — ISP'
+  principle: 'ISP'
+  origin: 'ai'

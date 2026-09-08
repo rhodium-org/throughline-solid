@@ -1,0 +1,23 @@
+uid: SR-0015
+type: system_requirement
+status: proposed
+title: 'Protect higher-level policy from changes in lower-level detail'
+text: |-
+  Arrange dependencies so that a change to a low-level component, for example the
+  presenter, the database or a view, cannot force a change to a higher-level one,
+  such as the business rules. The higher the level of a component, the more
+  protected it is from change in components below it. The dependency arrows point
+  from detail toward policy.
+
+  Check. For each pair of components, ask whether a change to the lower one would
+  require editing the higher one. Any yes marks an arrow that points the wrong way.
+rationale: |-
+  This is the Open-Closed Principle at architectural scale. Policy is the part the
+  business cares about most and changes least; it must be the part that is closed.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 8 — OCP (directional control; information hiding)'
+  principle: 'OCP'
+  origin: 'ai'

@@ -1,0 +1,22 @@
+uid: SR-0016
+type: system_requirement
+status: proposed
+title: 'Expose behaviour, not fields, from a module that others depend on'
+text: |-
+  Fields of a class or module that other modules depend on are private, and clients
+  reach state only through methods that express behaviour. Global mutable variables
+  are not used. This keeps the representation free to change without touching
+  clients.
+
+  Check. Any public mutable field, or any module-level mutable state read by other
+  modules, is a modification hazard.
+rationale: |-
+  A public field is part of the module's interface. Changing its type or meaning
+  is a modification that ripples to every client that touches it.
+links:
+- target: UR-0002
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 9 — OCP (heuristics; make all member variables private, no global variables)'
+  principle: 'OCP'
+  origin: 'ai'

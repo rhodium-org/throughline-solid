@@ -1,0 +1,23 @@
+uid: SR-0030
+type: system_requirement
+status: proposed
+title: 'Depend on a narrow adapter rather than on a wide module for a small need'
+text: |-
+  When a module needs a small part of a library, framework, service or class that
+  carries much more, define the small interface the module actually needs and
+  implement it with an adapter over the wide dependency. The module names only its
+  own narrow interface. This applies to source-level dependencies, build-level
+  dependencies and deployment-level dependencies alike.
+
+  Check. A module that imports a large dependency and calls one or two operations on
+  it should own a narrow interface for those operations instead.
+rationale: |-
+  Depending on something that carries baggage you do not use exposes you to changes,
+  failures and transitive dependencies you did not choose.
+links:
+- target: UR-0004
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 10 — ISP (ISP and architecture); Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 12 — ISP (the Adapter separation)'
+  principle: 'ISP'
+  origin: 'ai'

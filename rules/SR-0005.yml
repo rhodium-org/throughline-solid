@@ -1,0 +1,24 @@
+uid: SR-0005
+type: system_requirement
+status: proposed
+title: 'Keep business rules, persistence, presentation and transport in separate modules'
+text: |-
+  A module that decides what the software does (business rules) does not also decide
+  how the result is stored, how it is shown, or how it travels over a network. Each of
+  those is a separate concern owned by a separate actor and lives in its own module.
+  A business-rule module has no import of a database driver, a web framework, a
+  serialisation library or a user-interface toolkit.
+
+  Check. Read the module's imports. Imports from more than one of these categories,
+  or a business module importing any of them, mark a violation.
+rationale: |-
+  Storage, display and transport technologies each change on their own schedule and
+  at the request of different people. Mixing them into the rules means every
+  technology decision reopens the rules for edit.
+links:
+- target: UR-0001
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 8 — SRP (separating coupled responsibilities); Martin, Clean Architecture (2017), ch. 7 — SRP'
+  principle: 'SRP'
+  origin: 'ai'

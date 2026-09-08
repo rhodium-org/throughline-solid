@@ -1,0 +1,23 @@
+uid: SR-0023
+type: system_requirement
+status: proposed
+title: "Run the supertype's tests against every implementation"
+text: |-
+  The tests that express a supertype's contract run, unchanged, against every
+  subtype and every implementation of the interface. Write contract tests once,
+  parameterised by implementation, and add each new implementation to the list. A
+  subtype that needs the shared tests weakened is not substitutable.
+
+  Check. Every implementation of an abstraction appears in that abstraction's
+  contract-test run.
+rationale: |-
+  Substitutability is a behavioural property, and behaviour is what tests measure.
+  A shared contract test is the cheapest mechanical proof that a subtype honours
+  the contract its callers rely on.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 'Liskov and Wing, A Behavioral Notion of Subtyping (ACM TOPLAS 16(6), 1994); Martin, Clean Architecture (2017), ch. 9 — LSP'
+  principle: 'LSP'
+  origin: 'ai'

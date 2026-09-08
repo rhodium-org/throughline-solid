@@ -1,0 +1,22 @@
+uid: SR-0036
+type: system_requirement
+status: proposed
+title: 'Do not inherit from or override methods of volatile concrete classes'
+text: |-
+  A policy module does not extend a volatile concrete class and does not override its
+  concrete methods. Inheritance is the strongest source-code dependency there is, and
+  an overridden concrete method inherits the base method's dependencies with it. Make
+  the base abstract, or hold the other object and delegate.
+
+  Check. Any extends or inherits clause in a policy module that names a concrete,
+  volatile class is a violation.
+rationale: |-
+  Overriding a concrete function does not remove the dependency on it; it deepens
+  the coupling by tying the subtype to the base's implementation choices.
+links:
+- target: UR-0005
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 11 — DIP (do not derive from volatile concrete classes; do not override concrete functions)'
+  principle: 'DIP'
+  origin: 'ai'

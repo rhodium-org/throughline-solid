@@ -1,0 +1,24 @@
+uid: SR-0035
+type: system_requirement
+status: proposed
+title: 'Do not construct volatile concrete objects inside policy code'
+text: |-
+  Policy code does not use new, a static create call or a service locator to obtain
+  an instance of a volatile concrete class. Instances arrive through constructor
+  parameters, through an abstract factory the policy declares, or through the
+  composition root. Creating an object couples the creator to the concrete class as
+  firmly as calling it.
+
+  Check. Search policy modules for construction of concrete classes. Each hit is a
+  dependency to move to a factory or the composition root.
+rationale: |-
+  Construction is the hidden dependency. A module that never names a concrete type
+  in a declaration but creates one in a method body still cannot change or test
+  without it.
+links:
+- target: UR-0005
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 11 — DIP (factories); Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 11 — DIP'
+  principle: 'DIP'
+  origin: 'ai'

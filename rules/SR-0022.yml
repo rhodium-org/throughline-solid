@@ -1,0 +1,23 @@
+uid: SR-0022
+type: system_requirement
+status: proposed
+title: 'Do not test the concrete type of an object to decide how to treat it'
+text: |-
+  A caller holding a supertype does not use instanceof, type switches, casts or
+  class-name comparisons to give one subtype different treatment. When such a test
+  appears to be needed, the hierarchy is wrong. Move the differing behaviour into the
+  types, or split the abstraction.
+
+  Check. A type test on a value received through an abstraction marks a substitution
+  failure to be fixed at the type, not a caller to be patched.
+rationale: |-
+  Each type test couples the caller to the concrete types and must be revisited for
+  every new one. It is the caller compensating for a subtype that does not
+  substitute.
+links:
+- target: UR-0003
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 10 — LSP; Martin, Clean Architecture (2017), ch. 9 — LSP (the taxi dispatch example)'
+  principle: 'LSP'
+  origin: 'ai'

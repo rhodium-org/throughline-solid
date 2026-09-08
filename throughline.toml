@@ -1,0 +1,100 @@
+[project]
+name = "SOLID principles (throughline source)"
+format_version = 3
+
+# A throughline *source*: a standalone graph a consuming project composes via
+# throughline-compose, importing it under a namespace (e.g. `solid`) and referencing
+# principles as `solid:UR-0001` or rules as `solid:SR-0007`. The UIDs here are this
+# source's own and immutable; the publication a rule is drawn from lives in
+# `attrs.source_ref`, never in the UID.
+#
+# This source expresses the five SOLID principles of object-oriented design — Single
+# Responsibility, Open-Closed, Liskov Substitution, Interface Segregation and Dependency
+# Inversion — plus the guidance on applying them together. Each principle is a
+# user_requirement; every concrete, checkable rule is a system_requirement that
+# `implements` its principle. The wording is original; the principles' publications
+# (Martin, Liskov, Meyer) are referenced, not reproduced.
+#
+# It is a *design* concern source. Compose it orthogonally alongside a language source
+# (e.g. throughline-java) and a runtime concern source (e.g. throughline-backend): the
+# language source governs how code is written, this source governs how modules divide
+# responsibility and depend on one another.
+#
+# Edition handling: a material revision is cut as a dated tag on this repo
+# (e.g. v2026-09); a consumer pins the ref it wants.
+
+[grounding]
+root_types = ["intent"]
+delivery_roots = ["intent"]
+ground_link_types = ["derives_from", "implements"]
+ai_origins = ["ai", "hybrid"]
+
+[types.intent]
+attrs.origin = { type = "enum", values = ["human", "ai", "hybrid"] }
+
+# `principle` is the short tag the published spec groups by (SRP, OCP, LSP, ISP, DIP,
+# APPLY); `source_ref` names the publication and chapter the item is drawn from.
+[types.user_requirement]
+attrs.source_ref = { required = true }
+attrs.principle  = { type = "enum", values = ["SRP", "OCP", "LSP", "ISP", "DIP", "APPLY"], required = true }
+attrs.origin     = { type = "enum", values = ["human", "ai", "hybrid"] }
+
+[types.system_requirement]
+attrs.source_ref = { required = true }
+attrs.principle  = { type = "enum", values = ["SRP", "OCP", "LSP", "ISP", "DIP", "APPLY"], required = true }
+attrs.origin     = { type = "enum", values = ["human", "ai", "hybrid"] }
+
+[links]
+types = ["derives_from", "implements", "relates"]
+
+[link_rules]
+derives_from = { from = ["user_requirement"], to = ["intent"] }
+implements   = { from = ["system_requirement"], to = ["user_requirement"] }
+
+[status]
+# draft = actively moving toward approval; deferred = acknowledged and grounded
+# but deliberately parked (a backlog wish-list item, not on the active front).
+values = ["proposed", "draft", "deferred", "approved", "ratified", "implemented",
+          "verified", "suspect", "rejected", "deleted"]
+
+# Semantic status roles (SR-0131): which declared status plays each role the
+# tool's operations act on — `tl new` births at 'initial', `tl ratify` writes
+# 'ratified', `tl invalidate` writes 'invalidated' and reads 'invalidated' +
+# 'tombstone' as dead, `tl delete` writes 'tombstone'. Operations resolve status
+# through these roles, never a literal, so a project renames a status freely by
+# editing here. Delete this table only if you drive every status move by hand.
+[status.roles]
+initial = "draft"
+proposed = "proposed"
+ratified = "ratified"
+invalidated = "rejected"
+suspect = "suspect"
+tombstone = "deleted"
+
+# Allowed status moves (SR-0083). `tl check` compares each item against its
+# status in the previous commit and flags any change these do not permit. Delete
+# this table to leave every status freely reachable.
+# Every live status keeps a route to 'ratified' (SR-0150) — in particular the two
+# statuses below 'proposed' can move back to it, so scope that was authored or
+# parked without ratification can still be put forward for a human to accept.
+# Every live status also keeps a route to 'suspect' (SR-0175), so that an item
+# whose grounding is withdrawn can be flagged wherever it currently sits — the
+# statuses below 'approved' hold the items whose grounding is least settled.
+[transitions]
+proposed    = ["draft", "approved", "ratified", "deferred", "suspect", "rejected", "deleted"]
+draft       = ["proposed", "approved", "deferred", "suspect", "rejected", "deleted"]
+deferred    = ["proposed", "draft", "approved", "suspect", "rejected", "deleted"]
+approved    = ["ratified", "implemented", "deferred", "suspect", "rejected", "deleted"]
+ratified    = ["implemented", "suspect", "rejected", "deleted"]
+implemented = ["verified", "suspect", "rejected", "deleted"]
+verified    = ["implemented", "suspect", "deleted"]
+suspect     = ["approved", "ratified", "implemented", "verified", "rejected", "deleted"]
+rejected    = ["draft", "deleted"]
+
+# No test-coverage rule: this repository is a source of design rules, not a program.
+# Verification of a rule happens in each consuming project, against its own code.
+
+# `tl docs` regenerates docs/spec.md + README.md from the graph; `tl docs --check`
+# gates them so the published counts and tables can never drift.
+[docs]
+paths = ["docs/*.md", "README.md"]

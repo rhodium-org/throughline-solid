@@ -1,0 +1,24 @@
+uid: SR-0043
+type: system_requirement
+status: proposed
+title: 'Remove an abstraction that no longer earns its indirection'
+text: |-
+  When the second implementation of an interface is removed, when a split module's
+  parts are always changed together, or when an inverted dependency guards a detail
+  that has become stable, collapse the structure back. Delete the interface, merge
+  the modules or depend on the stable class directly. Leave the recorded reason in
+  the commit that removes it.
+
+  Check. Periodically list interfaces with one implementation and splits whose parts
+  always change together, and justify or remove each.
+rationale: |-
+  Design that outlives its reason is needless complexity. The principles are meant
+  to reduce the cost of change; structure that no longer does that is cost without
+  benefit.
+links:
+- target: UR-0006
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 7 — What Is Agile Design? (needless complexity); Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 9 — OCP'
+  principle: 'APPLY'
+  origin: 'ai'

@@ -1,0 +1,22 @@
+uid: SR-0006
+type: system_requirement
+status: proposed
+title: 'Keep together what always changes together'
+text: |-
+  Do not split a module along a line that has never moved and is not expected to. A
+  responsibility is an axis of change only if changes actually arrive along it. Two
+  behaviours that are always changed in the same commit, by the same actor, belong in
+  the same module.
+
+  Check. Before separating two behaviours, name the actor and the concrete change
+  that would move one without the other. If you cannot, leave them together.
+rationale: |-
+  Needless separation is its own cost. It spreads one change across several modules
+  and forces the reader to reassemble the responsibility in their head.
+links:
+- target: UR-0001
+  type: implements
+attrs:
+  source_ref: 'Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 8 — SRP (an axis of change is only an axis of change if the changes actually occur)'
+  principle: 'SRP'
+  origin: 'ai'

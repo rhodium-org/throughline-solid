@@ -1,0 +1,23 @@
+uid: SR-0001
+type: system_requirement
+status: proposed
+title: 'Name the single actor each module serves before writing it'
+text: |-
+  Before creating or extending a module, name the actor it serves. An actor is the
+  group of people or systems whose requests would change it, for example finance,
+  operations, the database team, a partner API. Record the actor where the module is
+  defined, in its documentation comment or module description.
+
+  Check. If the honest answer names two actors, the module has two responsibilities.
+  Split it before adding code.
+rationale: |-
+  A responsibility is a reason to change, and reasons to change come from people.
+  Naming the actor makes the single responsibility a testable fact rather than a
+  feeling about cohesion.
+links:
+- target: UR-0001
+  type: implements
+attrs:
+  source_ref: 'Martin, Clean Architecture (2017), ch. 7 — SRP'
+  principle: 'SRP'
+  origin: 'ai'
