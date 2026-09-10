@@ -33,6 +33,16 @@ It carries
 **source_ref**: Martin, Agile Software Development — Principles, Patterns, and Practices (2002), ch. 7 — What Is Agile Design?; Martin, Clean Architecture (2017), Part III — Design Principles · **principle**: APPLY · **origin**: ai
 <!-- tl:end -->
 
+## What this source does not do
+
+<!-- tl:catalog type == 'non_goal' -->
+**NG-0001 — Ratification on a consumer's behalf** — `non_goal`, status `proposed`
+
+> Items are published permanently unratified. Nobody maintaining this source is positioned to accept, for any consumer, that a rule is the right one for that consumer's code. A consumer that adopts a rule is itself responsible for ratifying it: for reading the rule and its Check paragraph, for deciding that the reason to change it names applies to its own system, and for recording that ratification in its own graph. The gate on this repository therefore runs tl check without --strict: an unratified item is the intended state, not a finding to clear.
+
+**origin**: ai
+<!-- tl:end -->
+
 ## Single Responsibility Principle
 
 <!-- tl:item UR-0001 -->
