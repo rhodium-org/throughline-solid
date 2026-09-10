@@ -1,0 +1,14 @@
+uid: NG-0001
+type: non_goal
+status: proposed
+title: Ratification on a consumer's behalf
+text: 'Items are published permanently unratified. Nobody maintaining this source
+  is positioned to accept, for any consumer, that a rule is the right one for that
+  consumer''s code. A consumer that adopts a rule is itself responsible for ratifying
+  it: for reading the rule and its Check paragraph, for deciding that the reason
+  to change it names applies to its own system, and for recording that ratification
+  in its own graph. The gate on this repository therefore runs tl check without --strict:
+  an unratified item is the intended state, not a finding to clear.'
+normative: true
+attrs:
+  origin: ai

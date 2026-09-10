@@ -22,8 +22,11 @@ jobs:
       - name: Install throughline
         run: pip install throughline
 
+      # Not --strict: every item here is permanently proposed by design (NG-0001),
+      # so an unratified finding is the intended state. Structural findings are
+      # errors under plain check and still fail the gate.
       - name: Grounding gate (the graph must stay sound)
-        run: tl check --strict
+        run: tl check
 
       - name: Docs freshness gate (docs/spec.md must match the graph)
         run: tl docs --check

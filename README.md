@@ -62,7 +62,9 @@ they cannot drift.
 Every item was authored by an AI agent from the cited publications and carries
 `attrs.origin: ai`. Items enter at `proposed` and stay there until a human ratifies
 them with `tl ratify`; an unratified item is still a valid link target, but its
-authority is that of a proposal. See the `by_status` counts in the
+authority is that of a proposal. Nobody here ratifies on a consumer's behalf
+(NG-0001): a consumer ratifies the rules it adopts in its own graph, which is why
+the gate runs `tl check` without `--strict`. See the `by_status` counts in the
 [iddn.uk catalogue](https://iddn.uk) for the current state.
 
 ## Editions — dated tags
@@ -94,7 +96,7 @@ at `tl-compose`.
 
 ```sh
 pip install throughline
-tl check --strict     # the graph must stay sound
+tl check              # the graph must stay sound (not --strict: items are proposed by design, NG-0001)
 tl docs --check       # docs/spec.md and README.md must match the graph
 ```
 

@@ -24,7 +24,9 @@ format_version = 3
 # (e.g. v2026-09); a consumer pins the ref it wants.
 
 [grounding]
-root_types = ["intent"]
+# A non-goal bounds what this source claims; it is negative space and derives
+# from nothing
+root_types = ["intent", "non_goal"]
 delivery_roots = ["intent"]
 ground_link_types = ["derives_from", "implements"]
 ai_origins = ["ai", "hybrid"]
@@ -98,3 +100,9 @@ rejected    = ["draft", "deleted"]
 # gates them so the published counts and tables can never drift.
 [docs]
 paths = ["docs/*.md", "README.md"]
+
+# Records what this source deliberately does not do, so a consumer cannot
+# mistake an absence for an omission
+[types.non_goal]
+# AI-authored items enter proposed like every other type here
+attrs.origin = { type = "enum", values = ["human", "ai", "hybrid"] }
