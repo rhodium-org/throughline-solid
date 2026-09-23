@@ -8,7 +8,7 @@ full terms.
 
 This repository is a throughline *source*: a requirements graph, not a program. It
 expresses the SOLID principles of object-oriented design as a grounded IDD graph so
-consuming projects can compose it with throughline-compose.
+consuming projects can compose it with throughline.
 
 The wording of every item is original to this repository. No text is reproduced from
 any publication. The principles themselves are the work of their authors: the
